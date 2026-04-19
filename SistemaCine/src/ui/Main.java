@@ -21,14 +21,6 @@ public class Main {
         cine.registrarPelicula(new Pelicula(10, "Ant-Man", 105));
         cine.registrarPelicula(new Pelicula(11, "Guardians", 120));
         cine.registrarPelicula(new Pelicula(12, "Flash", 108));
-        cine.registrarPelicula(new Pelicula(13, "Matrix", 130));
-        cine.registrarPelicula(new Pelicula(99, "PRUEBA", 100));
-        cine.registrarPelicula(new Pelicula(200, "STASH_TEST", 123));
-        cine.registrarPelicula(new Pelicula(300, "TEST_STASH", 100));
-        // cambio prueba stashsss
-     // ERROR INTENCIONAL
-        cine.registrarPelicula(new Pelicula(999, "ERROR_PELICULA", -100));
-        
         cine.listarPeliculas();
     }
 }
