@@ -1,13 +1,17 @@
 package modelos;
 
 public class Funcion {
-	private long id;
-    private String horario;
+
+    private long id;
+    private String horaInicio;
+    private String horaFin;
     private Pelicula pelicula;
 
-    public Funcion(long id, String horario, Pelicula pelicula) {
+    public Funcion(long id, String horaInicio, String horaFin, Pelicula pelicula) {
+
         this.id = id;
-        this.horario = horario;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
         this.pelicula = pelicula;
     }
 
@@ -15,8 +19,12 @@ public class Funcion {
         return id;
     }
 
-    public String getHorario() {
-        return horario;
+    public String getHoraInicio() {
+        return horaInicio;
+    }
+
+    public String getHoraFin() {
+        return horaFin;
     }
 
     public Pelicula getPelicula() {
@@ -25,7 +33,9 @@ public class Funcion {
 
     @Override
     public String toString() {
-        return "Funcion: " + pelicula.getTitulo() +
-               " - Horario: " + horario;
+
+        return "Funcion: " + pelicula.getTitulo()
+                + " | Inicio: " + horaInicio
+                + " | Fin: " + horaFin;
     }
 }

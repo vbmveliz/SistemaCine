@@ -1,5 +1,5 @@
 package ui;
-
+import modelos.Funcion;
 import modelos.Pelicula;
 import procesos.CineService;
 
@@ -14,6 +14,18 @@ public class Main {
 
         cine.listarPeliculas();
         
+     // ------------ FUNCIONES ----------
+        cine.registrarFuncion(
+            new Funcion(1, "8:00 PM", "10:00 PM",
+            new Pelicula(1, "Avengers", 120))
+        );
 
-       }
+        cine.registrarFuncion(
+            new Funcion(2, "10:30 PM", "12:20 AM",
+            new Pelicula(2, "Batman", 110))
+        );
+
+        cine.listarFunciones();
+
+            }
 }
