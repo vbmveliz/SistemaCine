@@ -1,23 +1,17 @@
 package procesos;
 
-import java.util.ArrayList;
-import modelos.Pelicula;
+import modelos.Asiento;
 
 public class CineService {
 
-    private ArrayList<Pelicula> peliculas = new ArrayList<>();
+    public String reservarAsiento(Asiento asiento) {
 
-    
-    //METODOS CAMELCASE
-    
-    // Añadir pelicula 
-    public void registrarPelicula(Pelicula p) {
-        peliculas.add(p);
-    }
- // Listar pelicula
-    public void listarPeliculas() {
-        for (Pelicula p : peliculas) {
-            System.out.println(p);
+        if(asiento.isOcupado()) {
+            return "Asiento ocupado.";
         }
+
+        asiento.reservar();
+
+        return "Asiento reservado.";
     }
 }
