@@ -3,6 +3,7 @@ package modelos;
 import java.time.Duration;
 import java.time.LocalTime;
 
+
 public class Funcion {
 
     private Pelicula pelicula;
@@ -42,6 +43,20 @@ public class Funcion {
         return fin;
     }
 
+ // ✔ VALIDACIÓN DE HORARIO (NUEVO)
+    public boolean horarioValido() {
+
+        long minutos = Duration.between(inicio, fin).toMinutes();
+
+        // si cruza medianoche
+        if (minutos < 0) {
+            minutos += 24 * 60;
+        }
+
+        return minutos > 0;
+    }
+
+    
     // TIEMPO REAL EN MILISEGUNDOS
     public int getDuracionMilis() {
 
