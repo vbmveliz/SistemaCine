@@ -6,7 +6,6 @@ public class Asiento {
     private boolean ocupado;
 
     public Asiento(int numero) {
-
         this.numero = numero;
         this.ocupado = false;
     }
@@ -21,9 +20,5 @@ public class Asiento {
 
     public void reservar() {
         ocupado = true;
-    }
-
-    public void liberar() {
-        ocupado = false;
     }
 }

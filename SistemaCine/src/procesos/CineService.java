@@ -1,45 +1,58 @@
 package procesos;
 
 import java.util.ArrayList;
+
 import modelos.Asiento;
-import modelos.Funcion;
+import modelos.Pelicula;
+import modelos.Sala;
 
 public class CineService {
-	
-	private ArrayList<Funcion> funciones = new ArrayList<>();
-    
-	public String reservarAsiento(Asiento asiento) {
 
-        if(asiento.isOcupado()) {
-            return "Asiento ocupado.";
-        }
+    private ArrayList<Pelicula> peliculas;
+    private ArrayList<Sala> salas;
 
-        asiento.reservar();
+    public CineService() {
 
-        return "Asiento reservado.";
-    }
-    
-	// -------- FUNCIONES --------
-
-    // ✔ AHORA VALIDANDO HORARIO
-    public String registrarFuncion(Funcion funcion) {
-
-        if (!funcion.horarioValido()) {
-            return "Horario inválido";
-        }
-
-        funciones.add(funcion);
-        return "Función registrada correctamente";
+        peliculas = new ArrayList<>();
+        salas = new ArrayList<>();
     }
 
-    // -------- LISTAR FUNCIONES --------
+    public void agregarPelicula(Pelicula p) {
+        peliculas.add(p);
+    }
 
-    public void listarFunciones() {
+    public ArrayList<Pelicula> getPeliculas() {
+        return peliculas;
+    }
 
-        System.out.println("=== FUNCIONES ===");
+    public void agregarSala(Sala sala) {
+        salas.add(sala);
+    }
 
-        for (Funcion f : funciones) {
-            System.out.println(f);
+    public ArrayList<Sala> getSalas() {
+        return salas;
+    }
+
+    public boolean reservarAsiento(int salaNum,
+            int asientoNum) {
+
+        for(Sala s : salas) {
+
+            if(s.getNumero() == salaNum) {
+
+                for(Asiento a : s.getAsientos()) {
+
+                    if(a.getNumero() == asientoNum) {
+
+                        if(!a.isOcupado()) {
+                            a.reservar();
+                            return true;
+                        }
+                    }
+                }
+            }
         }
+
+        return false;
     }
 }
